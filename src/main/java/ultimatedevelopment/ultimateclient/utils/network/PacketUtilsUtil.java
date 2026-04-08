@@ -1,6 +1,6 @@
 /*
- * This file is part of the Ultimate Client distribution (https://github.com/MeteorDevelopment/ultimate-client).
- * Copyright (c) Meteor Development.
+ * This file is part of the Ultimate Client distribution (https://github.com/Banicoder77/ultimate-client).
+ * Copyright (c) Banicoder77.
  */
 
 package ultimatedevelopment.ultimateclient.utils.network;
@@ -43,8 +43,8 @@ public class PacketUtilsUtil {
 
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
             writer.write("/*\n");
-            writer.write(" * This file is part of the Ultimate Client distribution (https://github.com/MeteorDevelopment/ultimate-client/).\n");
-            writer.write(" * Copyright (c) Meteor Development.\n");
+            writer.write(" * This file is part of the Ultimate Client distribution (https://github.com/Banicoder77/ultimate-client/).\n");
+            writer.write(" * Copyright (c) Banicoder77.\n");
             writer.write(" */\n\n");
 
             writer.write("package ultimatedevelopment.ultimateclient.utils.network;\n\n");

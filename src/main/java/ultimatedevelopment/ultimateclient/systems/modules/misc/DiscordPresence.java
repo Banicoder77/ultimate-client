@@ -1,6 +1,6 @@
 /*
- * This file is part of the Ultimate Client distribution (https://github.com/MeteorDevelopment/ultimate-client).
- * Copyright (c) Meteor Development.
+ * This file is part of the Ultimate Client distribution (https://github.com/Banicoder77/ultimate-client).
+ * Copyright (c) Banicoder77.
  */
 
 package ultimatedevelopment.ultimateclient.systems.modules.misc;
@@ -290,7 +290,7 @@ public class DiscordPresence extends Module {
     @Override
     public WWidget getWidget(GuiTheme theme) {
         WButton help = theme.button("Open documentation.");
-        help.action = () -> Util.getOperatingSystem().open("https://github.com/MeteorDevelopment/ultimate-client/wiki/Starscript");
+        help.action = () -> Util.getOperatingSystem().open("https://github.com/Banicoder77/ultimate-client/wiki/Starscript");
 
         return help;
     }

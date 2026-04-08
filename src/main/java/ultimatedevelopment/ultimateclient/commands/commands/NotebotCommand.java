@@ -1,6 +1,6 @@
 /*
- * This file is part of the Ultimate Client distribution (https://github.com/MeteorDevelopment/ultimate-client).
- * Copyright (c) Meteor Development.
+ * This file is part of the Ultimate Client distribution (https://github.com/Banicoder77/ultimate-client).
+ * Copyright (c) Banicoder77.
  */
 
 package ultimatedevelopment.ultimateclient.commands.commands;
@@ -47,7 +47,7 @@ public class NotebotCommand extends Command {
     @Override
     public void build(LiteralArgumentBuilder<CommandSource> builder) {
         builder.then(literal("help").executes(ctx -> {
-            Util.getOperatingSystem().open("https://github.com/MeteorDevelopment/ultimate-client/wiki/Notebot-Guide");
+            Util.getOperatingSystem().open("https://github.com/Banicoder77/ultimate-client/wiki/Notebot-Guide");
             return SINGLE_SUCCESS;
         }));
 

@@ -1,6 +1,6 @@
 /*
- * This file is part of the Ultimate Client distribution (https://github.com/MeteorDevelopment/ultimate-client).
- * Copyright (c) Meteor Development.
+ * This file is part of the Ultimate Client distribution (https://github.com/Banicoder77/ultimate-client).
+ * Copyright (c) Banicoder77.
  */
 
 package ultimatedevelopment.ultimateclient.systems.modules;
@@ -395,8 +395,11 @@ public class Modules extends System<Modules> {
         module.settings.registerColorSettings(module);
     }
 
-    private void initCombat() {
-        add(new AnchorAura());
+     private void initCombat() {
+         add(new AutoLeave());
+         add(new KeepSprint());
+         add(new NoMissCooldown());
+         add(new AnchorAura());
         add(new AntiAnvil());
         add(new AntiBed());
         add(new ArrowDodge());
@@ -444,8 +447,13 @@ public class Modules extends System<Modules> {
         add(new EXPThrower());
         add(new FakePlayer());
         add(new FastUse());
-        add(new GhostHand());
-        add(new InstantRebreak());
+         add(new Eagle());
+         add(new GhostHand());
+         add(new InstantRebreak());
+         add(new NoBlockInteract());
+         add(new NoEntityInteract());
+         add(new NoRotateSet());
+         add(new NoSlotSet());
         add(new LiquidInteract());
         add(new MiddleClickExtra());
         add(new Multitask());
@@ -472,9 +480,16 @@ public class Modules extends System<Modules> {
         add(new Blink());
         add(new ClickTP());
         add(new ElytraBoost());
-        add(new ElytraFly());
-        add(new EntityControl());
-        add(new FastClimb());
+         add(new AntiLevitation());
+         add(new AntiBounce());
+         add(new ElytraFly());
+         add(new EntityControl());
+         add(new FastClimb());
+         add(new Freeze());
+         add(new NoClip());
+         add(new NoJumpDelay());
+         add(new NoPose());
+         add(new NoPush());
         add(new Flight());
         add(new GUIMove());
         add(new HighJump());
@@ -531,9 +546,18 @@ public class Modules extends System<Modules> {
         add(new TunnelESP());
         add(new VoidESP());
         add(new WallHack());
-        add(new WaypointsModule());
-        add(new Xray());
-        add(new Zoom());
+         add(new AntiBlind());
+         add(new AutoF5());
+         add(new NoBob());
+         add(new NoFov());
+         add(new NoHurtCam());
+         add(new NoSwing());
+         add(new QuickPerspectiveSwap());
+         add(new SmoothCamera());
+         add(new TrueSight());
+         add(new WaypointsModule());
+         add(new Xray());
+         add(new Zoom());
     }
 
     private void initWorld() {
@@ -553,8 +577,12 @@ public class Modules extends System<Modules> {
         add(new HighwayBuilder());
         add(new LiquidFiller());
         add(new MountBypass());
-        add(new NoGhostBlocks());
-        add(new Nuker());
+         add(new AutoDisable());
+         add(new BlockIn());
+         add(new Extinguish());
+         add(new NoGhostBlocks());
+         add(new NoSlowBreak());
+         add(new Nuker());
         add(new PacketMine());
         add(new StashFinder());
         add(new SpawnProofer());
@@ -586,8 +614,9 @@ public class Modules extends System<Modules> {
         add(new Swarm());
     }
 
-    private void initExploit() {
-        add(new AntiReducedDebugInfo());
+     private void initExploit() {
+         add(new AbortBreaking());
+         add(new AntiReducedDebugInfo());
         add(new ClickTp());
         add(new Kick());
         add(new MoreCarry());

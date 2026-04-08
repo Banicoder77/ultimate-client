@@ -1,6 +1,6 @@
 /*
- * This file is part of the Ultimate Client distribution (https://github.com/MeteorDevelopment/ultimate-client).
- * Copyright (c) Meteor Development.
+ * This file is part of the Ultimate Client distribution (https://github.com/Banicoder77/ultimate-client).
+ * Copyright (c) Banicoder77.
  */
 
 package ultimatedevelopment.ultimateclient.mixin;
@@ -15,10 +15,14 @@ import ultimatedevelopment.ultimateclient.systems.modules.movement.Sprint;
 import ultimatedevelopment.ultimateclient.systems.modules.movement.elytrafly.ElytraFlightModes;
 import ultimatedevelopment.ultimateclient.systems.modules.movement.elytrafly.ElytraFly;
 import ultimatedevelopment.ultimateclient.systems.modules.movement.elytrafly.modes.Bounce;
+import ultimatedevelopment.ultimateclient.systems.modules.movement.AntiLevitation;
 import ultimatedevelopment.ultimateclient.systems.modules.player.NoStatusEffects;
 import ultimatedevelopment.ultimateclient.systems.modules.player.OffhandCrash;
+import ultimatedevelopment.ultimateclient.systems.modules.render.AntiBlind;
 import ultimatedevelopment.ultimateclient.systems.modules.render.HandView;
 import ultimatedevelopment.ultimateclient.systems.modules.render.NoRender;
+import ultimatedevelopment.ultimateclient.systems.modules.render.NoSwing;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
@@ -65,6 +69,13 @@ public abstract class LivingEntityMixin extends Entity {
         if (Modules.get().get(OffhandCrash.class).isAntiCrash()) {
             info.cancel();
         }
+    }
+
+    @Inject(method = "swingHand(Lnet/minecraft/util/Hand;Z)V", at = @At("HEAD"), cancellable = true)
+    private void noSwingCancel(Hand hand, boolean fromServerPlayer, CallbackInfo ci) {
+        if ((Object) this != mc.player) return;
+        NoSwing noSwing = Modules.get().get(NoSwing.class);
+        if (noSwing != null && noSwing.isActive() && noSwing.clientSide.get()) ci.cancel();
     }
 
     @ModifyArg(method = "swingHand(Lnet/minecraft/util/Hand;)V", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/LivingEntity;swingHand(Lnet/minecraft/util/Hand;Z)V"))
@@ -114,6 +125,18 @@ public abstract class LivingEntityMixin extends Entity {
     private boolean hasStatusEffect(boolean original, RegistryEntry<StatusEffect> effect) {
         if (effect == null || effect.value() == null) return original;
         if (Modules.get().get(NoStatusEffects.class).shouldBlock(effect.value())) return false;
+
+        // AntiLevitation - cancel levitation effect
+        if (Modules.get().isActive(AntiLevitation.class)) {
+            if (effect.matches(StatusEffects.LEVITATION::equals) || effect.matches(StatusEffects.SLOW_FALLING::equals)) return false;
+        }
+
+        // AntiBlind - cancel visual impairing effects
+        AntiBlind antiBlind = Modules.get().get(AntiBlind.class);
+        if (antiBlind != null && antiBlind.isActive()) {
+            if (antiBlind.blindness.get() && effect.matches(StatusEffects.BLINDNESS::equals)) return false;
+            if (antiBlind.darkness.get() && effect.matches(StatusEffects.DARKNESS::equals)) return false;
+        }
 
         return original;
     }

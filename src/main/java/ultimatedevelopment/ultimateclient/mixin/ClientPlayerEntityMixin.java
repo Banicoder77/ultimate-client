@@ -1,6 +1,6 @@
 /*
- * This file is part of the Ultimate Client distribution (https://github.com/MeteorDevelopment/ultimate-client).
- * Copyright (c) Meteor Development.
+ * This file is part of the Ultimate Client distribution (https://github.com/Banicoder77/ultimate-client).
+ * Copyright (c) Banicoder77.
  */
 
 package ultimatedevelopment.ultimateclient.mixin;
@@ -15,6 +15,7 @@ import ultimatedevelopment.ultimateclient.events.entity.DropItemsEvent;
 import ultimatedevelopment.ultimateclient.events.entity.player.PlayerTickMovementEvent;
 import ultimatedevelopment.ultimateclient.events.entity.player.SendMovementPacketsEvent;
 import ultimatedevelopment.ultimateclient.systems.modules.Modules;
+import ultimatedevelopment.ultimateclient.systems.modules.fun.Twerk;
 import ultimatedevelopment.ultimateclient.systems.modules.movement.*;
 import ultimatedevelopment.ultimateclient.systems.modules.player.LiquidInteract;
 import ultimatedevelopment.ultimateclient.systems.modules.player.NoMiningTrace;
@@ -87,7 +88,17 @@ public abstract class ClientPlayerEntityMixin extends AbstractClientPlayerEntity
 
     @ModifyExpressionValue(method = "tick", at = @At(value = "FIELD", target = "Lnet/minecraft/client/input/Input;playerInput:Lnet/minecraft/util/PlayerInput;", opcode = Opcodes.GETFIELD))
     private PlayerInput isSneaking(PlayerInput original) {
-        if (Modules.get().get(Sneak.class).doPacket() || Modules.get().get(NoSlow.class).airStrict()) {
+        boolean forceSneak = Modules.get().get(Sneak.class).doPacket()
+            || Modules.get().get(NoSlow.class).airStrict();
+
+        // Twerk: alternate sneak based on player age
+        Twerk twerk = Modules.get().get(Twerk.class);
+        if (twerk != null && twerk.isActive()) {
+            int d = twerk.delay.get();
+            forceSneak = forceSneak || (((ClientPlayerEntity)(Object)this).age % (d * 2) < d);
+        }
+
+        if (forceSneak) {
             return new PlayerInput(
                 original.forward(),
                 original.backward(),

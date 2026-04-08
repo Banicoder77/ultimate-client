@@ -1,6 +1,6 @@
 /*
- * This file is part of the Ultimate Client distribution (https://github.com/MeteorDevelopment/ultimate-client).
- * Copyright (c) Meteor Development.
+ * This file is part of the Ultimate Client distribution (https://github.com/Banicoder77/ultimate-client).
+ * Copyright (c) Banicoder77.
  */
 
 package ultimatedevelopment.ultimateclient.mixin;
@@ -11,6 +11,7 @@ import ultimatedevelopment.ultimateclient.systems.modules.Modules;
 import ultimatedevelopment.ultimateclient.systems.modules.render.CameraTweaks;
 import ultimatedevelopment.ultimateclient.systems.modules.render.FreeLook;
 import ultimatedevelopment.ultimateclient.systems.modules.render.Freecam;
+import ultimatedevelopment.ultimateclient.systems.modules.render.NoHurtCam;
 import ultimatedevelopment.ultimateclient.systems.modules.render.NoRender;
 import ultimatedevelopment.ultimateclient.systems.modules.world.HighwayBuilder;
 import net.minecraft.block.enums.CameraSubmersionType;
