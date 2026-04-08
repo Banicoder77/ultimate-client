@@ -21,6 +21,8 @@ import ultimatedevelopment.ultimateclient.systems.System;
 import ultimatedevelopment.ultimateclient.systems.Systems;
 import ultimatedevelopment.ultimateclient.systems.config.Config;
 import ultimatedevelopment.ultimateclient.systems.modules.combat.*;
+import ultimatedevelopment.ultimateclient.systems.modules.exploit.*;
+import ultimatedevelopment.ultimateclient.systems.modules.fun.*;
 import ultimatedevelopment.ultimateclient.systems.modules.misc.*;
 import ultimatedevelopment.ultimateclient.systems.modules.misc.swarm.Swarm;
 import ultimatedevelopment.ultimateclient.systems.modules.movement.*;
@@ -77,6 +79,8 @@ public class Modules extends System<Modules> {
         initMovement();
         initRender();
         initWorld();
+        initExploit();
+        initFun();
         initMisc();
     }
 
@@ -580,5 +584,29 @@ public class Modules extends System<Modules> {
         add(new SoundBlocker());
         add(new Spam());
         add(new Swarm());
+    }
+
+    private void initExploit() {
+        add(new AntiReducedDebugInfo());
+        add(new ClickTp());
+        add(new Kick());
+        add(new MoreCarry());
+        add(new MultiActions());
+        add(new NameCollector());
+        add(new NoPitchLimit());
+        add(new PingSpoof());
+        add(new Plugins());
+        add(new PortalMenu());
+        add(new ResetVL());
+        add(new SleepWalker());
+        add(new TimeShift());
+    }
+
+    private void initFun() {
+        add(new DankBobbing());
+        add(new Derp());
+        add(new HandDerp());
+        add(new SkinDerp());
+        add(new Twerk());
     }
 }
