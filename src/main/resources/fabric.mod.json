@@ -1,51 +1,49 @@
 {
   "schemaVersion": 1,
-  "name": "Meteor Client",
-  "id": "meteor-client",
+  "name": "Ultimate Client",
+  "id": "ultimate-client",
   "version": "${version}",
   "description": "Based utility mod.",
   "authors": [
-    "MineGame159",
-    "squidoodly",
-    "seasnail"
+    "Banicoder77"
   ],
   "contact": {
     "homepage": "https://meteorclient.com",
-    "issues": "https://github.com/MeteorDevelopment/meteor-client/issues",
-    "sources": "https://github.com/MeteorDevelopment/meteor-client",
+    "issues": "https://github.com/UltimateDevelopment/ultimate-client/issues",
+    "sources": "https://github.com/UltimateDevelopment/ultimate-client",
     "discord": "https://meteorclient.com/discord"
   },
   "license": "GPL-3.0",
-  "icon": "assets/meteor-client/icon.png",
+  "icon": "assets/ultimate-client/icon.png",
   "environment": "client",
   "entrypoints": {
     "client": [
-      "meteordevelopment.meteorclient.MeteorClient"
+      "ultimatedevelopment.ultimateclient.UltimateClient"
     ],
     "modmenu": [
-      "meteordevelopment.meteorclient.modintegration.ModMenuIntegration"
+      "ultimatedevelopment.ultimateclient.modintegration.ModMenuIntegration"
     ]
   },
   "mixins": [
-    "meteor-client.mixins.json",
-    "meteor-client-baritone.mixins.json",
-    "meteor-client-indigo.mixins.json",
-    "meteor-client-sodium.mixins.json",
-    "meteor-client-lithium.mixins.json",
-    "meteor-client-viafabricplus.mixins.json"
+    "ultimate-client.mixins.json",
+    "ultimate-client-baritone.mixins.json",
+    "ultimate-client-indigo.mixins.json",
+    "ultimate-client-sodium.mixins.json",
+    "ultimate-client-lithium.mixins.json",
+    "ultimate-client-viafabricplus.mixins.json"
   ],
-  "accessWidener": "meteor-client.accesswidener",
+  "accessWidener": "ultimate-client.accesswidener",
   "custom": {
-    "meteor-client:build_number": "${build_number}",
-    "meteor-client:color": "145,61,226",
-    "meteor-client:commit": "${commit}",
+    "ultimate-client:build_number": "${build_number}",
+    "ultimate-client:color": "145,61,226",
+    "ultimate-client:commit": "${commit}",
     "modmenu": {
       "links": {
         "modmenu.discord": "https://meteorclient.com/discord"
       }
     },
     "badoptimizations:cache_hooks": {
-      "lightmap": "meteordevelopment.meteorclient.modintegration.BadOptimizationsHook"
+      "lightmap": "ultimatedevelopment.ultimateclient.modintegration.BadOptimizationsHook"
     }
   },
   "depends": {

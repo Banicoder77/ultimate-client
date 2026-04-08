@@ -1,0 +1,12 @@
+{
+  "required": false,
+  "package": "ultimatedevelopment.ultimateclient.mixin.viafabricplus",
+  "compatibilityLevel": "JAVA_21",
+  "plugin": "ultimatedevelopment.ultimateclient.MixinPlugin",
+  "client": [
+    "GeneralSettingsMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

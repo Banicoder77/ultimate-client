@@ -1,0 +1,16 @@
+/*
+ * This file is part of the Ultimate Client distribution (https://github.com/MeteorDevelopment/ultimate-client).
+ * Copyright (c) Meteor Development.
+ */
+
+package ultimatedevelopment.ultimateclient.events.entity.player;
+
+import ultimatedevelopment.ultimateclient.events.Cancellable;
+
+public class DoAttackEvent extends Cancellable {
+    private static final DoAttackEvent INSTANCE = new DoAttackEvent();
+
+    public static DoAttackEvent get() {
+        return INSTANCE;
+    }
+}

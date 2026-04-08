@@ -1,0 +1,18 @@
+/*
+ * This file is part of the Ultimate Client distribution (https://github.com/MeteorDevelopment/ultimate-client).
+ * Copyright (c) Meteor Development.
+ */
+
+package ultimatedevelopment.ultimateclient.mixin;
+
+import net.minecraft.client.texture.PlayerSkinProvider;
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.gen.Accessor;
+
+import java.nio.file.Path;
+
+@Mixin(PlayerSkinProvider.FileCache.class)
+public interface FileCacheAccessor {
+    @Accessor("directory")
+    Path meteor$getDirectory();
+}

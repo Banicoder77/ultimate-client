@@ -1,0 +1,13 @@
+{
+  "required": false,
+  "package": "ultimatedevelopment.ultimateclient.mixin.indigo",
+  "compatibilityLevel": "JAVA_21",
+  "plugin": "ultimatedevelopment.ultimateclient.MixinPlugin",
+  "client": [
+    "AbstractTerrainRenderContextMixin",
+    "BlockRenderInfoMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

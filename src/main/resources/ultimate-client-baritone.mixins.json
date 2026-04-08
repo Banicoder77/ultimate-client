@@ -1,0 +1,12 @@
+{
+  "required": true,
+  "package": "ultimatedevelopment.ultimateclient.mixin.baritone",
+  "compatibilityLevel": "JAVA_21",
+  "plugin": "ultimatedevelopment.ultimateclient.MixinPlugin",
+  "client": [
+    "ComeCommandMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
