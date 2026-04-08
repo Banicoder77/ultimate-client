@@ -11,7 +11,6 @@ import ultimatedevelopment.ultimateclient.systems.modules.Modules;
 import ultimatedevelopment.ultimateclient.systems.modules.render.CameraTweaks;
 import ultimatedevelopment.ultimateclient.systems.modules.render.FreeLook;
 import ultimatedevelopment.ultimateclient.systems.modules.render.Freecam;
-import ultimatedevelopment.ultimateclient.systems.modules.render.NoHurtCam;
 import ultimatedevelopment.ultimateclient.systems.modules.render.NoRender;
 import ultimatedevelopment.ultimateclient.systems.modules.world.HighwayBuilder;
 import net.minecraft.block.enums.CameraSubmersionType;

@@ -21,7 +21,6 @@ import ultimatedevelopment.ultimateclient.renderer.UltimateRenderPipelines;
 import ultimatedevelopment.ultimateclient.renderer.Renderer3D;
 import ultimatedevelopment.ultimateclient.systems.modules.Modules;
 import ultimatedevelopment.ultimateclient.systems.modules.render.Freecam;
-import ultimatedevelopment.ultimateclient.systems.modules.render.NoHurtCam;
 import ultimatedevelopment.ultimateclient.systems.modules.render.NoRender;
 import ultimatedevelopment.ultimateclient.systems.modules.render.Zoom;
 import ultimatedevelopment.ultimateclient.systems.modules.world.HighwayBuilder;
@@ -255,13 +254,6 @@ public abstract class GameRendererMixin implements IGameRenderer {
         if (!Modules.get().get(Freecam.class).renderHands() ||
             !Modules.get().get(Zoom.class).renderHands())
             ci.cancel();
-    }
-
-    // NoHurtCam - zero out the hurtTime used for camera tilt
-    @ModifyExpressionValue(method = "renderWorld", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/LivingEntity;getHurtTime()I", ordinal = 0))
-    private int noHurtCamHurtTime(int original) {
-        if (Modules.get().isActive(NoHurtCam.class)) return 0;
-        return original;
     }
 
     @Override

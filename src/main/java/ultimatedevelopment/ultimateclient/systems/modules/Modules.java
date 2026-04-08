@@ -550,7 +550,6 @@ public class Modules extends System<Modules> {
          add(new AutoF5());
          add(new NoBob());
          add(new NoFov());
-         add(new NoHurtCam());
          add(new NoSwing());
          add(new QuickPerspectiveSwap());
          add(new SmoothCamera());
