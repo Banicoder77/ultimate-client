@@ -31,7 +31,7 @@ public class Main {
 
         switch (option) {
             case 0:
-                getOS().open("https://meteorclient.com/faq/installation");
+                getOS().open("https://github.com/Banicoder77/ultimate-client/faq/installation");
                 break;
             case 1: {
                 File mods = new File(getModsFolder());

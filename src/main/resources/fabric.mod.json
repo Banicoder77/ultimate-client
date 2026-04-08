@@ -8,10 +8,10 @@
     "Banicoder77"
   ],
   "contact": {
-    "homepage": "https://meteorclient.com",
-    "issues": "https://github.com/UltimateDevelopment/ultimate-client/issues",
-    "sources": "https://github.com/UltimateDevelopment/ultimate-client",
-    "discord": "https://meteorclient.com/discord"
+    "homepage": "https://github.com/Banicoder77/ultimate-client",
+    "issues": "https://github.com/Banicoder77/ultimate-client/issues",
+    "sources": "https://github.com/Banicoder77/ultimate-client",
+    "discord": "https://discord.gg/ultimate-client"
   },
   "license": "GPL-3.0",
   "icon": "assets/ultimate-client/icon.png",
